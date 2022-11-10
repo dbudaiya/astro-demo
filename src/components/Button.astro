@@ -1,0 +1,34 @@
+---
+import Title from './Title.vue'
+const buttons = ['Dog', 'Cat', 'mouse']
+export interface Props {
+  msg?: string
+  cn?: string
+}
+const { msg, cn } = Astro.props;
+const cpn = import.meta.glob('./*.astro')
+console.log(cpn);
+const response = await fetch('http://123.207.32.32:9001/banner');
+const data = await response.json();
+const randomUser = data['banners'].splice(0,3)
+---
+
+<h1 class={cn}>{msg}</h1>
+<ul>
+  {randomUser.map((item) => 
+    ( (
+      <>
+        <li>
+            <img src={item.imageUrl}  width="350" />
+        </li>
+      </>
+     ))
+  )}
+</ul>
+<Title title="lalal" />
+
+<style>
+  .home {
+    background-color: red;
+  }
+</style>

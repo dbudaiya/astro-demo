@@ -1,0 +1,25 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    // 启用用于 npm 软件包导入的 node 式模块解析，
+    "moduleResolution": "node",
+    // 启用 JSON 导入。
+    "resolveJsonModule": true,
+    // 启用更严格的转译，以获得更好的输出。
+    "isolatedModules": true,
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ]
+    }
+  }
+}
